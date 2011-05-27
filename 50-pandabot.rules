@@ -1,0 +1,2 @@
+BUS=="usb", SYSFS{idProduct}=="780b", SYSFS{idVendor}=="2108", SYMLINK="prlite-neato"
+
