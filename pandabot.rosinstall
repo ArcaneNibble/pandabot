@@ -1,0 +1,4 @@
+- git: {local-name: pandabot, uri: 'git@github.com:someh4x0r/pandabot.git'} 
+#- git: {local-name: pandabot, uri: 'git://github.com/someh4x0r/pandabot.git'} 
+- git: {local-name: neato_robot, uri: 'git@github.com:someh4x0r/neato_robot.git'} 
+#- git: {local-name: neato_robot, uri: 'git://github.com/someh4x0r/neato_robot.git'} 
