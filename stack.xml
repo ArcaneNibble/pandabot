@@ -1,0 +1,9 @@
+<stack>
+  <description brief="pandabot">pandabot</description>
+  <author>Maintained by robert</author>
+  <license></license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pandabot</url>
+  <depend stack="ros" />
+
+</stack>
