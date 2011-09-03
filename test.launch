@@ -8,5 +8,9 @@
 	<node pkg="tf" type="static_transform_publisher" name="laser_to_base" args="-0.1016 0 0.0889 0 0 0 base_link base_laser_link 50" />
 	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
 		<remap from="scan" to="base_scan" />
+		<param name="map_update_interval" value="2.0" />
+		<param name="particles" value="300" />
+		<param name="maxUrange" value="6.0" />
+		<param name="delta" value="0.20" />
 	</node>
 </launch>
