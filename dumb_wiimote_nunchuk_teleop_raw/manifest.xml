@@ -1,0 +1,17 @@
+<package>
+  <description brief="dumb_wiimote_nunchuk_teleop_raw">
+
+     dumb_wiimote_nunchuk_teleop_raw
+
+  </description>
+  <author>Robert</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/dumb_wiimote_nunchuk_teleop_raw</url>
+
+	<depend package="wiimote"/>
+	<depend package="geometry_msgs"/>
+
+</package>
+
+
