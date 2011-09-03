@@ -1,0 +1,12 @@
+<launch>
+	<node name="wiimote" pkg="wiimote" type="wiimote_node.py" />
+	<node name="neato" pkg="neato_node" type="neato.py" />
+	<node name="teleop" pkg="dumb_wiimote_nunchuk_teleop_raw" type="dumb_teleop.py" />
+	<!--param name="robot_description" command="cat $(find neato_urdf)/neato_xv11.urdf" />
+	<node name="state_pub" pkg="robot_state_publisher" type="state_publisher">
+	</node-->
+	<node pkg="tf" type="static_transform_publisher" name="laser_to_base" args="-0.1016 0 0.0889 0 0 0 base_link base_laser_link 50" />
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
+		<remap from="scan" to="base_scan" />
+	</node>
+</launch>
