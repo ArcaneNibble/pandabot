@@ -1,16 +1,36 @@
 <launch>
-	<node name="wiimote" pkg="wiimote" type="wiimote_node.py" />
+	<!--node name="wiimote" pkg="wiimote" type="wiimote_node.py" /-->
 	<node name="neato" pkg="neato_node" type="neato.py" />
-	<node name="teleop" pkg="dumb_wiimote_nunchuk_teleop_raw" type="dumb_teleop.py" />
+	<!--node name="teleop" pkg="dumb_wiimote_nunchuk_teleop_raw" type="dumb_teleop.py" /-->
 	<!--param name="robot_description" command="cat $(find neato_urdf)/neato_xv11.urdf" />
 	<node name="state_pub" pkg="robot_state_publisher" type="state_publisher">
 	</node-->
 	<node pkg="tf" type="static_transform_publisher" name="laser_to_base" args="-0.1016 0 0.0889 0 0 0 base_link base_laser_link 50" />
 	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
 		<remap from="scan" to="base_scan" />
-		<param name="map_update_interval" value="2.0" />
+		<!--param name="map_update_interval" value="2.0" />
 		<param name="particles" value="300" />
 		<param name="maxUrange" value="6.0" />
-		<param name="delta" value="0.20" />
+		<param name="delta" value="0.0125" />
+		<param name="xmin" value="-25.0" />
+		<param name="ymin" value="-25.0" />
+		<param name="xmax" value="25.0" />
+		<param name="ymax" value="25.0" /-->
+
+		<param name="srr" value="0.001" />
+		<param name="srt" value="0.001" />
+		<param name="str" value="0.000001" />
+		<param name="stt" value="0.000001" />
+		<param name="linearUpdate" value="0.5" />
+		<param name="angularUpdate" value="0.4" />
 	</node>
+
+  <param name="use_sim_time" value="false"/>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find 2dnav_neato)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find 2dnav_neato)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find 2dnav_neato)/params/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find 2dnav_neato)/params/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find 2dnav_neato)/params/base_local_planner_params.yaml" command="load" />
+  </node>
 </launch>
